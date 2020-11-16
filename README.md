@@ -7,7 +7,7 @@
 |--------------------|---------------------|----------------------------|
 | nickname           | string              | null: false, unique: true  |
 | email              | string              | null: false, unique: true  |
-| password           | string              | null: false                |
+| encrypted_password           | string              | null: false                |
 | family_name        | string              | null: false                |
 | first_name         | string              | null: false                |
 | family_name_kana   | string              | null: false                |
@@ -18,6 +18,7 @@
 
 * has_many :seller_items, class_name: 'item', foreign_key: 'seller_id'
 * has_many :buyer_items, class_name: 'item', foreign_key: 'buyer_id'
+* has_one :purchases, dependent: :destroy
 
 
 
@@ -31,8 +32,8 @@
 | city                         | string       | null:false                     |
 | house_number                 | string       | null:false                     |
 | building_name                | string       |
-| phone_number                 | string       | unique: true                   |
-| user                         | references   | null: false, foreign_key: true |
+| phone_number                 | string       | null: false, unique: true      |
+| purchases                    | references   | null: false, foreign_key: true |
 
 ### Association
 
@@ -49,8 +50,8 @@
 |------------------------------|--------------|--------------------------------|
 | name                         | string       | null: false                    |
 | explanation                  | text         | null: false                    |
-| category                     | references   | null: false, foreign_key: true |
-| condition                    | references   | null: false,foreign_key: true  |
+| category_id                  | integer      | null: false, foreign_key: true |
+| condition_id                 | integer      | null: false,foreign_key: true  |
 | price                        | integer      | null: false                    |
 | brand                        | references   | foreign_key: true              |
 | postage_id                   | integer      | null: false                    |
@@ -63,7 +64,6 @@
 
 ### Association
 
-* has_many :item_images, dependent: :destroy
 * belongs_to_active_hash :prefecture
 * belongs_to :category
 * belongs_to_active_hash :condition
@@ -71,6 +71,8 @@
 * belongs_to_active_hash :prepare
 * belongs_to :seller, class_name: 'user', foreign_key: 'seller_id'
 * belongs_to :buyer, class_name: 'user', foreign_key: 'buyer_id'
+* belongs_to :purchases,
+
 
 
 
@@ -87,6 +89,6 @@
 
 * belongs_to :item
 * belongs_to :user
-
+* belongs_to :sending_destination
 
 
