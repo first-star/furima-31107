@@ -39,7 +39,7 @@
 
 * belongs_to :user
 * belongs_to_active_hash :prefecture
-
+* has_one :purchases, dependent: :destroy
 
 
 
@@ -53,13 +53,10 @@
 | category_id                  | integer      | null: false, foreign_key: true |
 | condition_id                 | integer      | null: false,foreign_key: true  |
 | price                        | integer      | null: false                    |
-| brand                        | references   | foreign_key: true              |
 | postage_id                   | integer      | null: false                    |
 | prefecture_id                | integer      | null: false                    |
-| size                         | references   | null: false, foreign_key: true |
 | prepare_id                   | integer      | null: false, foreign_key: true |
-| seller                       | references   | null: false, foreign_key: true |
-| buyer                        | references   | foreign_key: true              |
+| user_id                      | references   | null: false, foreign_key: true |
 
 
 ### Association
@@ -69,9 +66,7 @@
 * belongs_to_active_hash :condition
 * belongs_to_active_hash :postage
 * belongs_to_active_hash :prepare
-* belongs_to :seller, class_name: 'user', foreign_key: 'seller_id'
-* belongs_to :buyer, class_name: 'user', foreign_key: 'buyer_id'
-* belongs_to :purchases,
+* has_one :purchases, dependent: :destroy
 
 
 
