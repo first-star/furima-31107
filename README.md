@@ -16,10 +16,8 @@
 
 ### Association
 
-* has_many :seller_items, class_name: 'item', foreign_key: 'seller_id'
-* has_many :buyer_items, class_name: 'item', foreign_key: 'buyer_id'
-* has_one :purchases
-
+* has_many :items
+* has_many :purchases
 
 
 
@@ -39,7 +37,7 @@
 
 * belongs_to :user
 * belongs_to_active_hash :prefecture
-* has_one :purchases
+* belongs_to :purchases
 
 
 
@@ -56,7 +54,7 @@
 | postage_id                   | integer      | null: false                    |
 | prefecture_id                | integer      | null: false                    |
 | prepare_id                   | integer      | null: false, foreign_key: true |
-| user_id                      | references   | null: false, foreign_key: true |
+| user                         | references   | null: false, foreign_key: true |
 
 
 ### Association
@@ -67,7 +65,7 @@
 * belongs_to_active_hash :postage
 * belongs_to_active_hash :prepare
 * has_one :purchases
-
+* belongs_to :user
 
 
 
@@ -84,6 +82,6 @@
 
 * belongs_to :item
 * belongs_to :user
-* belongs_to :sending_destination
+* has_one :sending_destination
 
 
