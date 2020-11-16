@@ -18,7 +18,7 @@
 
 * has_many :seller_items, class_name: 'item', foreign_key: 'seller_id'
 * has_many :buyer_items, class_name: 'item', foreign_key: 'buyer_id'
-* has_one :purchases, dependent: :destroy
+* has_one :purchases
 
 
 
@@ -39,7 +39,7 @@
 
 * belongs_to :user
 * belongs_to_active_hash :prefecture
-* has_one :purchases, dependent: :destroy
+* has_one :purchases
 
 
 
@@ -66,7 +66,7 @@
 * belongs_to_active_hash :condition
 * belongs_to_active_hash :postage
 * belongs_to_active_hash :prepare
-* has_one :purchases, dependent: :destroy
+* has_one :purchases
 
 
 
