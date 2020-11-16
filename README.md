@@ -30,12 +30,11 @@
 | city                         | string       | null:false                     |
 | house_number                 | string       | null:false                     |
 | building_name                | string       |
-| phone_number                 | string       | null: false, unique: true      |
+| phone_number                 | string       | null: false                    |
 | purchases                    | references   | null: false, foreign_key: true |
 
 ### Association
 
-* belongs_to :user
 * belongs_to_active_hash :prefecture
 * belongs_to :purchases
 
