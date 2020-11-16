@@ -47,12 +47,12 @@
 |------------------------------|--------------|--------------------------------|
 | name                         | string       | null: false                    |
 | explanation                  | text         | null: false                    |
-| category_id                  | integer      | null: false, foreign_key: true |
-| condition_id                 | integer      | null: false,foreign_key: true  |
+| category_id                  | integer      | null: false                    |
+| condition_id                 | integer      | null: false                    |
 | price                        | integer      | null: false                    |
 | postage_id                   | integer      | null: false                    |
 | prefecture_id                | integer      | null: false                    |
-| prepare_id                   | integer      | null: false, foreign_key: true |
+| prepare_id                   | integer      | null: false                    |
 | user                         | references   | null: false, foreign_key: true |
 
 
@@ -63,7 +63,7 @@
 * belongs_to_active_hash :condition
 * belongs_to_active_hash :postage
 * belongs_to_active_hash :prepare
-* has_one :purchases
+* has_one :purchase
 * belongs_to :user
 
 
