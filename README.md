@@ -18,7 +18,6 @@
 
 * has_many :seller_items, class_name: 'item', foreign_key: 'seller_id'
 * has_many :buyer_items, class_name: 'item', foreign_key: 'buyer_id'
-* has_one :sending_destinations, dependent: :destroy
 
 
 
@@ -27,11 +26,7 @@
 
 | Column                       | Type         | Options                        |
 |------------------------------|--------------|--------------------------------|
-| destination_first_name       | string       | null: false                    |
-| destination_family_name      | string       | null: false                    |
-| destination_first_name_kana  | string       | null: false                    |
-| destination_family_name_kana | string       | null: false                    |
-| post_code                    | integer(7)   | null:false                     |
+| post_code                    | string       | null:false                     |
 | prefecture_id                | integer      | null:false                     |
 | city                         | string       | null:false                     |
 | house_number                 | string       | null:false                     |
@@ -95,14 +90,3 @@
 
 
 
-## images table
-
-| Column                       | Type         | Options                        |
-|------------------------------|--------------|--------------------------------|
-| image                        | string       | null:false                     |
-| item                         | references   | null:false, foreign_key:true   |
-
-
-### Association
-
-* belongs_to :item
