@@ -5,12 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
+   font = /\A[ぁ-んァ-ン一-龥]/
+   font_kana = /\A[ァ-ヶー－]+\z/
+
   with_options presence: true do
     validates :nickname
-    validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-    validates :family_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
-    validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :family_name, format: { with: font }
+    validates :first_name, format: { with: font }
+    validates :family_name_kana, format: { with: font_kana }
+    validates :first_name_kana, format: { with: font_kana }
     validates :birthday
   end
 
