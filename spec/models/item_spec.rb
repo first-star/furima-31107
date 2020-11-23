@@ -68,19 +68,19 @@ describe Item do
 
 
       it 'priceが300未満だと保存できない' do
-        @item.price = '200'
+        @item.price = 200
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
 
       it 'priceが9999999以上だと保存できない' do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
 
       it 'priceが半角数字でないと保存できない' do
-        @item.price = '１２３４'
+        @item.price = １２３４
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
