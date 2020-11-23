@@ -54,7 +54,6 @@
 | prepare_id                   | integer      | null: false                    |
 | user                         | references   | null: false, foreign_key: true |
 
-
 ### Association
 
 * belongs_to_active_hash :prefecture
