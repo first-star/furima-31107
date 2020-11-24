@@ -80,7 +80,7 @@ describe Item do
       end
 
       it 'priceが半角数字でないと保存できない' do
-        @item.price = １２３４
+        @item.price = '１２３４'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
