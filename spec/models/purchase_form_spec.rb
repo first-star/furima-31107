@@ -63,6 +63,11 @@ RSpec.describe PurchaseForm, type: :model do
           @purchase_form.valid?
           expect(@purchase_form.errors.full_messages).to include("Phone number Input only number")
         end
+        it 'phone_numberにハイフンが入っているとき' do 
+          @purchase_form.phone_number = '090-1234-5678'
+          @purchase_form.valid?
+          expect(@purchase_form.errors.full_messages).to include("Phone number Input only number")
+        end
         it 'tokenが空のとき' do
           @purchase_form.token = ''
           @purchase_form.valid?
