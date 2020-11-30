@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :destroy]
-  before_action :item_set, only: [:show, :edit, :updat, :destroy]
+  before_action :item_set, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all.order("created_at DESC")
